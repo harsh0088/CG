@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("");
+    
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(2, 29, 86);
+    
+    color: #fff;
+}
+img{
+    height: 80px;
+    width:80px;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+.navlinks ul{
+    margin: 0px;
+    
+    display: flex;
+}
+.navlinks ul li{
+    list-style: none;
+}
+.navlinks ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem;
+    display: block;
+}
+.navlinks ul li a:hover{
+    background-color: rgb(231, 140, 21);  
+}
+.ham{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+.ham .bar{
+    height: 3px;
+    width: 85%;
+    border-radius: 10px;
+    background-color: #fff;
+}
+@media (max-width: 400px){
+    .ham{
+        display: flex;
+    }
+    .navlinks{
+        display: none;
+        width: 100%;
+    }
+    .navbar{
+        flex-direction:column;
+        align-items: flex-start;
+    }
+    .navlinks ul{
+        width: 100%;
+        flex-direction: column;
+    }
+    .navlinks ul li{
+        text-align: center;
+    }
+    .navlinks ul li a{
+        padding: .8rem 1.5rem;
+    }
+    .navlinks.active{
+        display: flex;
+    }
+}
+.maintext{
+    font-size: 50px;
+    color: rgb(2, 32, 2);
+    margin-left: 30%;
+    margin-right:20px;
+    float: right;
+    text-align: left;
+}
+
+h1{
+    font-size: 22px;
+    margin-left: 30%;
+    float: right;
+    margin-right: 10px;
+    color: rgb(134, 134, 134);
+    margin-top: 5px;
+}
+
+
+.sidebar {
+    /* margin: 0px; */
+    /* padding: 0px; */
+    width: 120px;
+    background-color:rgb(2, 29, 86);
+    position: fixed;
+    height: 100%;
+    /* overflow: auto; */
+   
+  }
+
+  .bgImage{
+      margin-top: 50px;
+      margin-left: 150px;
+      height:400px;
+      width: 400px;
+  }
+
+  .container{
+      display: flex;
+  }
+  
+
+ /* span{
+
+    color: crimson;
+
+    font-weight: 500;
+
+} */
+.para{
+    
+    animation-duration: 3s;
+    animation-name: fadeOut;
+}
+@keyframes fadeOut {
+    0%{
+      /* margin-left: 0%;
+      width: 300%; */
+      opacity: 0;
+    }
+  
+    /* 50%{
+      /* margin-left: 100%;
+      width: 100%; */
+       
+    100%{
+        opacity: 1;
+    }
+  }
+
+  
+  .subtxt{
+    
+    animation-duration: 3s;
+    animation-name: fadeOut;
+}
+@keyframes fadeOut {
+    0%{
+      /* margin-left: 0%;
+      width: 300%; */
+      opacity: 0;
+    }
+  
+    50%{
+      /* margin-left: 100%;
+      width: 100%; */
+      opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
+  .button{
+      color: rgb(255, 255, 255);
+      margin-left: 30%;
+      margin-top: 7%;
+      height: 60px;
+      width: 200px;
+      background-color: rgb(2, 2, 69);
+      border-radius: 10px;
+  }
+  .button {
+    background-color: rgb(2, 29, 86);
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .button:hover{
+      background-color: rgb(214, 151, 33);
+  }
