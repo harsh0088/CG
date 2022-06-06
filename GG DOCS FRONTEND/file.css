@@ -51,10 +51,11 @@
 }
 
 .sidebar .logo_details .logo_name {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
+  font-family: 'poppin';
   color: var(--white);
-  margin-left: 65px;
+  margin-left: 25px;
   transition: all 0.5s ease;
 }
 
@@ -673,7 +674,7 @@ body {
     
   }
   .class article{
-height:130px;
+height:80px;
 width:300px;
 text-align:center;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -683,4 +684,15 @@ border-radius: 10px;
 background-color: #e8f3ee;
 margin:10px;
 margin-top:30px;
+  }
+  .logout{
+    background-color: #19181d;
+    color:white;
+    width:80px;
+    border-radius: 10px;
+    border:none;
+  }
+
+  .list{
+    margin-left: -15%;
   }

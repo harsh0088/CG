@@ -1,58 +1,179 @@
-let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-      // call function
-      changeBtn();
-    });
-
-    function changeBtn() {
-      if(sidebar.classList.contains("open")) {
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-      } else {
-        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-      }
-    }
-
-
-    function thisFileupload()
+// const html = document.documentElement;
+// const body = document.body;
+// import { constants } from './constants.js'
+const constants = {
+    apiBasePath: 'http://localhost:64658/api/'
+  }
+ 
+  const form = document.getElementById("input1");
+  console.log(form);
+  var curr=new Date();
+  function createFolders() {
+    try
     {
-        document.getElementById("file").click();
-    };
-
-    document.getElementById("myBtn").onclick = function() {myFunction()};
-
-/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+    
+     fetch(`${constants.apiBasePath}Folder`, {
+       body: JSON.stringify(
+      {
+        "folderName": form.value,
+        "folderCreatedBy" : sessionStorage.getItem("userid"),
+       "folderCreatedAt":curr.toISOString(),
+     "folderIsDeleted": 0
+    }
       
-    for (let i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+      ),
+       method: 'POST',
+       headers: {
+        'Content-Type': 'application/json'
+      },
+     }).then((folderCreateResponse) => {
+        console.log(folderCreateResponse);
+         listFolders();
+     });
+    }
+    catch(err)
+    {
+      console.log(err);
     }
   }
+  
+  function listFolders() {
+    try
+    {
+      var create = document.getElementById("create");
+      create.innerHTML = '';
+    fetch(`${constants.apiBasePath}Folder/`+sessionStorage.getItem("userid"), {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then((folders) => {
+      // console.log(folders);
+    folders.forEach(folder => {
+   
+      var create = document.getElementById("create");
+      var art = document.createElement("article");
+      art.setAttribute("id","section");
+      const fname = folder.folderName;
+      const folderid=folder.folderId;
+ 
+      // fold.style.backgroundColor = "red";
+      // console.log(fname);
+      console.log(folderid);
+      art.innerHTML =
+     `
+     <i class='folder  bx bxs-folder-open'></i>
+       <button id="filebtn" onclick ="createfiles(${folderid})"   style="text-decoration: none;border: 0px; background: #e8f3ee;margin-top:20px;margin-left:80px;font-weight:bold;"> ${fname} </button>
+       
+       <a style= "left:20px; bottom:20px;"></a>
+
+      <i class="bx bx-trash" onclick ="deletefolder(${folderid})" style="position: relative;left: 5px;bottom: 55px;">
+
+       </i>
+       `;  
+      
+     
+    
+      create.appendChild(art);
+      });
+    
+    })}
+    catch(err)
+    {
+      console.log(err);
+    }
+  } 
+  function createfiles(folderid){
+ sessionStorage.setItem("folderid",folderid);
+window.location.href="file.html";
+  }
+  
+  function onLoad() {
+    listFolders();
+document.getElementById("adminName").innerHTML="Hi, "+sessionStorage.getItem("username") + "!";
+  }
+  
+ onLoad();
+
+
+//  file path 
+
+
+const next = document.getElementById('hello');
+console.log(next);
+
+  
+
+
+// console.log(next);
+function logout(){
+  sessionStorage.clear();
+  window.location.href="index.html";
 }
 
-// triggers
+function searchItem(){
 
- let btn = document.getElementById('btnn');
-console.log("hekki");
- let inpt = document.getElementById("input1");
- console.log(inpt);
-    
- function createfun() {
+  try
 
-console.log(inpt);
+  {
 
- }
+    var search=document.getElementById("search").value;
+
+    // console.log(search);
+
+    var create = document.getElementById("create");
+
+    create.innerHTML = '';
+
+  fetch(`http://localhost:64658/api/Folder/${sessionStorage.getItem("userid")}/${search}`)
+
+  .then(response => response.json())
+
+  .then((folders) => {
+
+    console.log(folders);
+
+    folders.forEach(folder => {
+      var create = document.getElementById("create");
+      var art = document.createElement("article");
+      art.setAttribute("id","section");
+      const fname = folder.folderName;
+      const folderid=folder.folderId;
+
+      // fold.style.backgroundColor = "red";
+      // console.log(fname);
+      console.log(folderid);
+      art.innerHTML =
+      `<button id="filebtn" onclick ="createfiles(${folderid})"> ${fname} </button>`;
+      create.appendChild(art);
+    });
+  })
+  }
+  catch(err)
+
+  {
+    console.log(err);
+  }
+
+}
+
+//delete folder
+function deletefolder(folder) {
+  var raw = "";
+var requestOptions = {
+  method: 'DELETE',
+  body: raw,
+  redirect: 'follow'
+};
+
+let deleteurl = "http://localhost:64658/api/Folder/" + folder;
+fetch(deleteurl,requestOptions)
+.then(response=>response.text())
+.then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  location.reload();  
+}
+
+
+
+
+

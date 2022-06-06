@@ -56,15 +56,25 @@ namespace cgDocs.Controllers
         }
 
         // PUT: api/Folder/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("{id}/{value}")]
+        public IActionResult Get(int id, string value)
         {
+            var result = _cgDocsContext.Folders.Where(e => e.FolderCreatedBy == id).Where(o => o.FolderName.Contains(value));
+            return Ok(result);
         }
 
         // DELETE: api/ApiWithActions/5
+
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var delete = _cgDocsContext.Documents.Where(res => res.FolderId == id).ToList();
+            delete.ForEach(res => _cgDocsContext.Documents.Remove(res));
+            var del = _cgDocsContext.Folders.Where(res => res.FolderId == id).ToList();
+            del.ForEach(res => _cgDocsContext.Folders.Remove(res));
+            _cgDocsContext.SaveChanges();
         }
+
+
     }
 }

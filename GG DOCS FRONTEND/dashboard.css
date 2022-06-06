@@ -54,7 +54,8 @@
   font-size: 20px;
   font-weight: 600;
   color: var(--white);
-  margin-left: 65px;
+  margin-left: 5px;
+  font-family: 'poppin';
   transition: all 0.5s ease;
 }
 
@@ -192,6 +193,7 @@
   border: 1px solid #ccc;
   border-radius: 30px;
   overflow-x: hidden;
+  background-color: #11101d;
 }
 
 .home_section .topbar .search_wrapper input {
@@ -217,6 +219,7 @@
   height: 40px;
   margin-right: 0.5rem;
   border-radius: 50%;
+
 }
 
 /* End Top Bar */
@@ -685,4 +688,48 @@ margin:10px;
 margin-top:30px;
   }
 
+  .logout{
+    background-color: #2d2c36;
+    border:none;
+    width:100px;
+    border-radius: 10px;
+    color:white;
+  }
 
+  .list{
+    margin-left: -15%;
+  }
+  
+  #searchButton{
+    background-color: #11101d;
+    color: white;
+    border: none;
+  }
+
+  /* .bxs-folder-open{
+    height: 100px;
+    width: 100px;
+    margin-top: 50px;
+    margin-right: 80px;
+  } */
+
+
+  
+  .filebtn{
+    text-decoration: none;
+    border: 0px;
+    background: #e8f3ee;
+    font-weight: bold;
+    /* position: relative; */
+    margin-top: 20px;
+    
+  }
+
+  .folder
+  {
+    /* position: relative; */
+    font-size: 70px;
+    margin-right: 44px;
+    margin-top: 20px;
+
+  }

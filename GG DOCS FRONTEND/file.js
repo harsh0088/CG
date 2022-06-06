@@ -1,18 +1,17 @@
+var form=document.getElementById("input1");
 function createfile() {
     try
     {
-     fetch('https://localhost:44392/api/Document/'+sessionStorage.getItem("folderid"), {
+     fetch('http://localhost:64658/api/Document', {
        body: JSON.stringify({
-        // "folderName": form.value,
-        // "createdBy": id,
-        // "isDeleted": 0,
+       
         "documentName": form.value,
-          "createdAt": curr.toISOString(),
-          "isDeleted": 0,
-          "contentType": "c#",
-          "size": 120,
-          "createdBy": id,
-          "folderId": sessionStorage.getItem("folderId"),
+        "documentContentType": "text",
+        "documentSize": 100,
+        "documentCreatedBy": sessionStorage.getItem("userid"),
+        "documentCreatedAt": "2022-06-01T18:37:00",
+        "documentIsDeleted": false,
+          "folderId": sessionStorage.getItem("folderid"),
           
       }),
        method: 'POST',
@@ -21,7 +20,7 @@ function createfile() {
       },
      }).then((folderCreateResponse) => {
         console.log(folderCreateResponse);
-         listFolders();
+         listFile();
      });
     }
     catch(err)
@@ -29,12 +28,12 @@ function createfile() {
       console.log(err);
     }
     } 
-      function listFolders() {
+      function listFile() {
         try
         {
           var create = document.getElementById("create");
           create.innerHTML = '';
-        fetch('https://localhost:44392/api/Document/'+sessionStorage.getItem("folderId"), {
+        fetch('http://localhost:64658/api/Document/'+sessionStorage.getItem("folderid"), {
           method: 'GET'
         })
         .then(response => response.json())
@@ -45,14 +44,8 @@ function createfile() {
           var create = document.getElementById("create");
           var art = document.createElement("article");
           console.log(folder);
-          const fold = folder.documentName;
-          console.log(fold);
-          // fold.style.backgroundColor = "red";
-          // console.log(fold);
-          art.innerHTML = `<i class=" filei fa-2x fa-solid fa-file"></i>
-          <button style="font-size:  20px;text-decoration: none;position: relative;left: 400px;bottom: 2px;cursor: pointer;">${fold}</button>
-          
-          </i>`;
+          const fname = folder.documentName;
+          art.innerHTML = `<button id="filebtn" style="text-decoration: none;font-weight:bold;border: 0px; background: #e8f3ee;margin-top:30px;margin-left:100px;"> ${fname} </button>`;;
           create.appendChild(art);
           });
         })
@@ -63,3 +56,14 @@ function createfile() {
           console.log(err);
         }
       }
+      
+  function onLoad() {
+    listFile();
+document.getElementById("adminName").innerHTML="Hi, "+sessionStorage.getItem("username") + "!";
+  }
+  
+ onLoad();
+ function logout(){
+  sessionStorage.clear();
+  window.location.href="index.html";
+}

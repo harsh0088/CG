@@ -30,7 +30,7 @@
     <div class="logo_details">
      
       <div class="logo_name">
-        CG Docs 
+        CG-DOCS 
       </div>    
       <!-- <label class="dropdown">
 
@@ -44,7 +44,7 @@
         
        
     </div>
-    <ul>
+    <ul class="list">
       <!-- <li>
         <a href="#" class="active">
             <span class="links_name" data-toggle="modal" data-target="#exampleModalCenter">
@@ -56,16 +56,7 @@
         
         
       </li> -->
-      <li>
-       
-        
-        
-               <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Create new folder
-  </button>
-        
-      </li>
+    
       <li>
         
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -128,7 +119,7 @@
       <li class="login">
         <a href="login.html">
           <span class="links_name login_out">
-            Log Out
+           <button class="logout" onclick="logout()"> Log Out</button>
           </span>
           <i class='bx bx-log-out' id="log_out"></i>
         </a>
@@ -181,7 +172,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create folder</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Create file</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -190,7 +181,7 @@
             </div>
             <div class="modal-footer">
               <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" onclick="createFolders()" class="btn btn-primary">Upload</button>
+              <button type="button" onclick="createfile() " class="btn btn-primary">Upload</button>
             </div>
           </div>
         </div>
