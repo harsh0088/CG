@@ -45,7 +45,9 @@ function createfile() {
           var art = document.createElement("article");
           console.log(folder);
           const fname = folder.documentName;
-          art.innerHTML = `<button id="filebtn" style="text-decoration: none;font-weight:bold;border: 0px; background: #e8f3ee;margin-top:30px;margin-left:100px;"> ${fname} </button>`;;
+          art.innerHTML = `
+          <i id="file"class='bx bx-file' onclick='opendetails(${folder.folderId},"${folder.folderName}","${folder.folderCreatedBy}","${folder.folderCreatedAt}")'></i>
+          <button id="filebtn" style="text-decoration: none;font-weight:bold;border: 0px; background: #e8f3ee;margin-top:30px;margin-left:100px;"> ${fname} </button>`;;
           create.appendChild(art);
           });
         })
@@ -66,4 +68,14 @@ document.getElementById("adminName").innerHTML="Hi, "+sessionStorage.getItem("us
  function logout(){
   sessionStorage.clear();
   window.location.href="index.html";
+}
+
+function opendetails(folderid,foldername,createdby,createdat)
+{
+  alert(
+  "FolderId : " +folderid+ "\n"+
+  "Folder Name :" +foldername + "\n"+
+  "Created By : " +createdby + "\n"+
+  "Created At : " +createdat+ "\n"
+  );
 }

@@ -17,31 +17,12 @@ body{
 }
 
 .container{
-    max-width: 800px;
-    width:100%;
-    display:flex;
-    flex-direction: column;
+width: 100%;
     background-color: rgb(252, 234, 196);
-    padding:25px 30px;
-    border-radius:0px 10px 10px 0px;
-    margin-left: 70px;
-    /* position: relative; */
+    padding: 25px 30px;
+    border-radius: 0px 10px 10px 0px;
    
 }
-
-/* .container .title{
-    font-size: 25px;
-    font-weight: 500;
-    position:relative;
-}
-.container .title::before{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:0;
-    height:3px;
-    width:30px;
-} */
 
 .container form .user-details{
     display: flex;
@@ -55,22 +36,19 @@ body{
 .containerbody
 {
     display: inline-flex;
-    
-    height:600px;
-    width: 900px;
+    height:80%;
+    width:70%;
     background-color: white;
     border-radius:20px ;
     justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 #docimg
 {
-    height:600px;
-    width:500px;
     background-color: white;
-    margin-left:-150px;
     border-radius: 20px;
-
+    width: 55%;
 }
 
 form .user-details .input-box{
@@ -87,11 +65,11 @@ form .user-details .input-box{
 .user-details .input-box input{
     height: 45px;
     width: 100%;
-    outline :none;
-    border-radius:40px;
-    border:1px solid #ccc;
-    padding-left:15px;
-    font-size:16px;
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
 }
@@ -140,6 +118,9 @@ form .gender-details .category{
     background: linear-gradient(rgb(92, 202, 92),rgb(142, 237, 142));
 }
 
+form{
+    margin-top: 4rem;
+}
 form input[type="radio"]{
     display:none;
 }
@@ -152,42 +133,96 @@ form .button{
 form .button input{
     height: 100%;
     width: 100%;
-    outline:none;
-    color:#fff;
-    justify-content: center;
-    align-items: center;
-    border:none;
-    font-size:18px;
-    font-weight:500;
-    border-radius:25px;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
     letter-spacing: 1px;
-    background-color:#345fb7
+    background-color: #345fb7;
 }
 
 form .button input:hover{
     background: linear-gradient(135deg,#71b7e6,#9b5);
 }
 
+#createAccountTag
+{
+    display: flex;
+    justify-content: center;
+}
+
+#formHead
+{
+    font-size: 2rem;
+}
+
 /* media queries */
-@media(max-width:584px){
-    .container{
-        max-width:100%;
-    }
+@media (max-width: 1200px) {
+.containerbody{
+    display: flex;
+    justify-content: space-between;
+    display: inline-flex;
+    height: 70%;
+    width: 80%;
+    background-color: white;
+    border-radius: 20px;
+    justify-content: center;
 
-form .user-details .input-box{
-    margin-bottom: 15px;
-    width:100%;
 }
 
-form .gender-details .category{
+#docimg
+{
+    background-color: white;
+    border-radius: 20px;
+    height: 90%;
+    width: 50%;
+}
+
+.container{
+    width: 50%;
+    height: 100%;
+    max-width: 800px;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgb(252, 234, 196);
+    padding: 25px 30px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.user-details .input-box .details {
+display: flex;
+font-weight: 500;
+margin-bottom: 5px;
+}
+}
+@media (max-width: 1400px) {
+    .containerbody{
+        display: flex;
+        justify-content: space-between;
+        display: inline-flex;
+        height: 70%;
+        width: 80%;
+        background-color: white;
+        border-radius: 20px;
+        justify-content: center;
     
-    width:100%;
-}
-.container form .user-details{
-    max-height: 300px;
-    overflow-y:scroll;
-} 
-.user-details::-webkit-scrollbar{
-    width: 0;
-}
-}
+    }
+    
+    #docimg
+    {
+        width: 50%;
+        height: 95%;
+    }
+    
+    .container{
+        width: 100%;
+    }
+    
+    .user-details .input-box .details {
+    display: flex;
+    font-weight: 500;
+    margin-bottom: 5px;
+    }
+    }

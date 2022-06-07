@@ -564,15 +564,10 @@ body {
   
   
   /* Dropdown */
-  
-  
-  
   .dropdown {
   display: inline-block;
   position: relative;
   }
-  
-  
   
   .dd-button {
   display: inline-block;
@@ -583,8 +578,6 @@ body {
   cursor: pointer;
   white-space: nowrap;
   }
-  
-  
   
   .dd-button:after {
   content: '';
@@ -599,20 +592,13 @@ body {
   border-top: 5px solid black;
   }
   
-  
-  
   .dd-button:hover {
   background-color: #eeeeee;
   }
-  
-  
-  
-  
+    
   .dd-input {
   display: none;
   }
-  
-  
   
   .dd-menu {
   position: absolute;
@@ -626,19 +612,13 @@ body {
   list-style-type: none;
   }
   
-  
-  
   .dd-input + .dd-menu {
   display: none;
   }
   
-  
-  
   .dd-input:checked + .dd-menu {
   display: block;
   }
-  
-  
   
   .dd-menu li {
   padding: 10px 20px;
@@ -646,21 +626,15 @@ body {
   white-space: nowrap;
   }
   
-  
-  
-  .dd-menu li:hover {
+.dd-menu li:hover {
   background-color: #f6f6f6;
   }
-  
-  
   
   .dd-menu li a {
   display: block;
   margin: -10px -20px;
   padding: 10px 20px;
   }
-  
-  
   
   .dd-menu li.divider{
   padding: 0;
@@ -695,4 +669,9 @@ margin-top:30px;
 
   .list{
     margin-left: -15%;
+  }
+
+  #file{
+    font-size: 180%;
+    cursor: pointer;
   }

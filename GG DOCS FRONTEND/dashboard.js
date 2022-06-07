@@ -1,6 +1,3 @@
-// const html = document.documentElement;
-// const body = document.body;
-// import { constants } from './constants.js'
 const constants = {
     apiBasePath: 'http://localhost:64658/api/'
   }
@@ -61,15 +58,14 @@ const constants = {
       console.log(folderid);
       art.innerHTML =
      `
-     <i class='folder  bx bxs-folder-open'></i>
+     <i class='folder  bx bxs-folder-open' onclick='opendetails(${folder.folderId},"${folder.folderName}","${folder.folderCreatedBy}","${folder.folderCreatedAt}")'></i>
        <button id="filebtn" onclick ="createfiles(${folderid})"   style="text-decoration: none;border: 0px; background: #e8f3ee;margin-top:20px;margin-left:80px;font-weight:bold;"> ${fname} </button>
        
        <a style= "left:20px; bottom:20px;"></a>
 
       <i class="bx bx-trash" onclick ="deletefolder(${folderid})" style="position: relative;left: 5px;bottom: 55px;">
 
-       </i>
-       `;  
+       </i>`;  
       
      
     
@@ -174,6 +170,14 @@ fetch(deleteurl,requestOptions)
 }
 
 
-
+function opendetails(folderid,foldername,createdby,createdat)
+{
+  alert(
+  "FolderId : " +folderid+ "\n"+
+  "Folder Name :" +foldername + "\n"+
+  "Created By : " +createdby + "\n"+
+  "Created At : " +createdat+ "\n"
+  );
+}
 
 

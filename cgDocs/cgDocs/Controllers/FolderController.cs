@@ -55,7 +55,8 @@ namespace cgDocs.Controllers
             _cgDocsContext.SaveChanges();
         }
 
-        // PUT: api/Folder/5
+        // Get: api/Folder/5
+        //for searching
         [HttpGet("{id}/{value}")]
         public IActionResult Get(int id, string value)
         {

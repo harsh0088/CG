@@ -19,7 +19,8 @@ body{
 img{
     height: 80px;
     width:80px;
-    margin-left: 30px;
+    /* temporaray change */
+    margin-left: -570px; 
     border-radius: 10px;
 }
 .navlinks ul{
@@ -123,13 +124,6 @@ h1{
   }
   
 
- /* span{
-
-    color: crimson;
-
-    font-weight: 500;
-
-} */
 .para{
     
     animation-duration: 3s;
@@ -137,14 +131,8 @@ h1{
 }
 @keyframes fadeOut {
     0%{
-      /* margin-left: 0%;
-      width: 300%; */
       opacity: 0;
     }
-  
-    /* 50%{
-      /* margin-left: 100%;
-      width: 100%; */
        
     100%{
         opacity: 1;
@@ -159,14 +147,10 @@ h1{
 }
 @keyframes fadeOut {
     0%{
-      /* margin-left: 0%;
-      width: 300%; */
       opacity: 0;
     }
   
     50%{
-      /* margin-left: 100%;
-      width: 100%; */
       opacity: .5;
     }
     100%{
